@@ -74,15 +74,15 @@ const ruanganDb = {
             });
         });
     },
-    updateBarang: (id, nama, nim, kelas, nohp, barang, jumlah_barang, tanggal_peminjaman, jam_peminjaman, tanggal_pengembalian, jam_pengembalian, user_id, status, keterangan, callback) => {
+    updateBarang: (id, status, keterangan, callback) => {
         conn.getConnection((err, con) => {
             if (err) {
                 console.log(err);
                 return callback(err, null);
             }
             console.log('Connected');
-            const sql = 'UPDATE barang SET nama=?, nim=?, kelas=?, nohp=?, barang=?, jumlah_barang=?, tanggal_peminjaman=?, jam_peminjaman=?, tanggal_pengembalian=?, jam_pengembalian=?, user_id=?, status=?, keterangan=? WHERE id=?';
-            con.query(sql, [nama, nim, kelas, nohp, barang, jumlah_barang, tanggal_peminjaman, jam_peminjaman, tanggal_pengembalian, jam_pengembalian, user_id, status, keterangan, id], (err, res) => {
+            const sql = 'UPDATE barang SET status=?, keterangan=? WHERE id=?';
+            con.query(sql, [status, keterangan, id], (err, res) => {
                 con.release();
                 if (err) {
                     console.log(err);

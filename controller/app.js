@@ -81,20 +81,10 @@ app.put('/api/ruangan/:id', (req, res, next) => {
         id
     } = req.params;
     const {
-        nama,
-        nim,
-        kelas,
-        nohp,
-        rg,
-        tanggal_peminjaman,
-        jam_peminjaman,
-        tanggal_pengembalian,
-        jam_pengembalian,
-        user_id,
         status,
         keterangan
     } = req.body;
-    ruangan.updateRuangan(id, nama, nim, kelas, nohp, rg, tanggal_peminjaman, jam_peminjaman, tanggal_pengembalian, jam_pengembalian, user_id, status, keterangan, (err, result) => {
+    ruangan.updateRuangan(id, status, keterangan, (err, result) => {
         if (err) {
             console.log(err);
             return res.status(500).send(err);
@@ -180,21 +170,10 @@ app.put('/api/barang/:id', (req, res, next) => {
         id
     } = req.params;
     const {
-        nama,
-        nim,
-        kelas,
-        nohp,
-        bg,
-        jumlah_bg,
-        tanggal_peminjaman,
-        jam_peminjaman,
-        tanggal_pengembalian,
-        jam_pengembalian,
-        user_id,
         status,
         keterangan
     } = req.body;
-    barang.updateBarang(id, nama, nim, kelas, nohp, bg, jumlah_bg, tanggal_peminjaman, jam_peminjaman, tanggal_pengembalian, jam_pengembalian, user_id, status, keterangan, (err, result) => {
+    barang.updateBarang(id, status, keterangan, (err, result) => {
         if (err) {
             console.log(err);
             return res.status(500).send(err);
